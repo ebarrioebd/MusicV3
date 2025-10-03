@@ -1,0 +1,17 @@
+<div id="listMusic" style="height: 90vh; display: block; margin: 20px; overflow-y: scroll;" class="showPage">
+    <h3 style="text-align: center;">Elimina y Edita tu Musica</h3>
+    <% musics.forEach(function(item) { %>
+        <div class="track-list" id="<%= item.id %>" style="display: flex; align-items: center;margin: 10px;">
+            <img src="/images/icon-music.png" height="30" width="30">
+            <div class="track" data-src="<%= item.url %>">
+                <marquee>
+                    <%= item.nombre %>
+                </marquee>
+            </div>
+            <button style="background: none;border: none;" onclick="eliminarMusica('<%= item.id %>')"><img src="/images/borrar.png" height="30"
+                    width="30"></button>
+            <img src="/images/lapiz.png" height="30" width="30">
+        </div>
+        
+        <% }); %>
+</div>

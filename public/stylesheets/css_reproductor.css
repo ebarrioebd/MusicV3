@@ -1,0 +1,118 @@
+.audio-player {
+    background: linear-gradient(135deg, #3b57d799 0%, #764ba212 100%);
+    border-radius: 20px;
+    padding: 10%;
+    max-width: 400px;
+    /* margin: 50px auto; */
+    width: 100%;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 62%);
+    font-family: 'Arial', sans-serif;
+}
+
+.player-controls {
+    display: block;
+    /*flex;*/
+    align-items: center;
+    gap: 15px;
+}
+
+.play-btn {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    background: #f0f0f0;
+}
+
+.play-btn.playing {
+    background: #ff6b6b;
+    color: white;
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.time {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 35px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.volume-slider {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.controls-audio {
+    display: flex;
+    margin: 7px 0px;
+    align-items: center;
+    justify-content: space-around;
+}

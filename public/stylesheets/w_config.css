@@ -1,0 +1,179 @@
+
+
+.config-inicio {
+  padding: 10px; 
+  border-radius: 15px;
+  box-shadow: var(--shadow2);
+  width: 80%;
+  height: 50%;
+  align-self: center; 
+  background: #1a1b34;
+  position: absolute;
+}
+
+.lista-inicio {
+  border-radius: 15px;
+  box-shadow: var(--shadow2);
+  width: 90%;
+  height: 70%;
+  align-self: center;
+  background: #0b0b22;
+  position: absolute;
+}
+
+/*
+Animacionde ocular configuraciones
+*/
+/* HTML: <div class="mi-elemento">Contenido</div> */
+
+@keyframes ocultarElemento {
+  from {
+    top: 15%;
+    opacity: 1;
+  }
+
+  to {
+    top: 0%;
+    opacity: 0;
+    display: none;
+    /* Opcional: eliminar del flujo del documento */
+  }
+}
+
+@keyframes mostrarElemento {
+  from {
+    display: block;
+    /* Opcional: eliminar del flujo del documento */
+    top: 0%;
+    opacity: 0;
+  }
+
+  to {
+    top: 15%;
+    opacity: 1;
+    display: block;
+    /* Opcional: eliminar del flujo del documento */
+  }
+}
+
+.ocultarIni {
+  display: none;
+}
+
+.ocultarConfig {
+  animation: ocultarElemento 0.8s forwards;
+  /* 'forwards' mantiene el estado final */
+}
+
+.mostrarConfig {
+  animation: mostrarElemento 0.5s forwards;
+  /* 'forwards' mantiene el estado final */
+
+}
+
+
+
+@keyframes ocultarElementoList {
+  from {
+    top: 15%;
+    opacity: 1;
+  }
+
+  to {
+    top: 0%;
+    opacity: 0;
+    display: none;
+    /* Opcional: eliminar del flujo del documento */
+  }
+}
+
+@keyframes mostrarElementoList {
+  from {
+    top: 0%;
+    opacity: 0;
+  }
+
+  to {
+    top: 15%;
+    opacity: 1;
+
+  }
+}
+
+.ocultarIni {
+  display: none;
+}
+
+.ocultarList {
+  animation: ocultarElementoList 0.5s forwards;
+  /* 'forwards' mantiene el estado final */
+}
+
+.mostrarList {
+  animation: mostrarElementoList 0.5s forwards;
+  /* 'forwards' mantiene el estado final */
+
+}
+
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 50px;
+  height: 50px;
+  color: #8667f8;
+  /* color inicial del icono */
+  transition: color 0.3s;
+}
+
+.btn-icon:hover {
+  color: #007bff;
+  /* color al pasar el mouse */
+}
+
+.btn-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  /* permite cambiar color con CSS */
+}
+
+/*------clase de botones para forms------*/
+.btn-form{
+  background: #8667f8;
+  border:#007bff solid 1px;
+}
+
+/*-----Ocultar -mostrar mp3*/
+@keyframes mostrarMp3 {
+  from {
+    left: -100%;
+    opacity: 0;
+  }
+
+  to {
+    left: 0%;
+    opacity: 1;
+
+  }
+}
+
+@keyframes ocultarMp3 {
+  from {
+    left: 0%;
+    opacity: 1;
+  }
+
+  to {
+    left: -100%;
+    opacity: 0;  
+  }
+}
+.ocultar-mp3{
+animation: ocultarMp3 0.5s forwards;
+}
+.mostrar-mp3{
+animation: mostrarMp3 0.5s forwards;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/images/musica.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi SPA con EJS</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/w_config.css">
+  <link rel="stylesheet" href="/stylesheets/css_reproductor.css">
+  <style>
+    #canvas {
+      width: 100%;
+      height: 10vh;
+    }
+  </style>
+</head>
+<%- include("partials/nav") -%>
+
+  <body>
+    <main id="contenido">
+
+    </main>
+    <div id="div_reproductor" style="top: 10%;height: 94%;position: fixed;width: 100%;" class="container ocultar-mp3">
+      <div class="player">
+        <div class="audio-player">
+          <audio id="audio"
+            src="https://dl.dropboxusercontent.com/scl/fi/78xrq0kiwxqa8ditjovqw/I-DON-T-WANT-TO-SET-THE-WORLD-ON-FIRE-THE-INK-SPOTS-SUBTITULADA.mp3?rlkey=dx2mueyy3ek6mhgkvtaz1j6a9&st=v8zckuf1"
+            crossorigin="anonymous">
+          </audio>
+          <div class="player-controls"> 
+            <div style="display: flex;justify-content: center ;">
+              <canvas   id="canvas"></canvas>
+            </div>
+            <marquee class="titulo-track" id="titulo-track">Selecciona una canción</marquee>
+            <div class="progress-container">
+              <span class="time" id="currentTime">0:00</span>
+              <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+              </div>
+              <span class="time" id="duration">0:00</span>
+            </div>
+
+            <div class="controls-audio">
+              <button class="btn-icon" id="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M18 6l-8.5 6L18 18V6zm-9.5 12V6H6v12h2.5z" />
+                </svg>
+              </button>
+              <button style="-webkit-text-stroke: thick;" class="play-btn" id="playPause">▶</button>
+              <button class="btn-icon" id="next">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M6 18l8.5-6L6 6v12zm9.5-12v12H18V6h-2.5z" />
+                </svg>
+              </button>
+            </div>
+            <div class="volume-control">
+              <button class="volume-btn" id="volumeBtn">🔊</button>
+              <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            </div>
+            <div>
+              <div class="nav-div" onclick="mostrarLista()"><img src="/images/album.png" height="30" width="30">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+     
+    <%- include('partials/listm.ejs'); -%>
+    <%- include('partials/config.ejs'); -%>
+
+  </body>
+  <script>
+    localStorage.setItem("imagen_fondo", "<%= imagen_fondo %>");
+    localStorage.setItem("blur", "<%= blur %>");
+  </script>
+  <script src="/javascripts/fetchs.js"></script>
+  <script src="/javascripts/js_windows_float.js"></script>
+  <script src="/javascripts/class_js_repr.js"></script>
+  <script src="javascripts/spa.js"></script>
+   
+
+</html>

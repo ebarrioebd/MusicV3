@@ -1,0 +1,27 @@
+<div id="config-inicio" class="ocultarIni config-inicio">
+    <div style="height: min-content;display: grid;align-items: center;justify-items: end;margin: 7px;">
+        <img onclick="mostrarConfig()" src="/images/cancelar.png" height="30" width="30">
+    </div>
+    <div style="display: grid;">
+        <h2 style="text-align: center;">Configuracion</h2>
+        <fieldset>
+            <legend>Seleccionar fondo</legend>
+            <select style="width: 100%;" id="selectImg" onchange="setFondo()">
+                <option selected>Seleccionar Img</option>
+                  <% imagenes.forEach(function(item) { 
+                    let imgs=JSON.parse(JSON.stringify(item)); %>
+                    <option id="<%= imgs.id %>" value="<%= imgs.url %>">
+                        <%= imgs.nombre %>
+                    </option>
+                    <% }); %>
+            </select>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Seleccionar blur</legend>
+            <input style="width: 100%;" id="rangeBlur" value="10" step="0.1" type="range" min="0" max="30">
+        </fieldset>
+    </div>
+    <br>
+    <button class="btn" onclick="guardarConfig()">Guardar</button>
+</div>

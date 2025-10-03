@@ -1,0 +1,13 @@
+<div style="height: 90vh; display: block; margin: 20px; overflow-y: scroll;" class="showPage">
+    <h3 style="text-align: center;">Elimina y Edita tus imagenes</h3>
+    <% imagenes.forEach(function(item) { %>
+        <div class="track-list" id="<%= item.id %>"
+            style="display: flex; align-items: center;margin: 10px; justify-content:space-between;">
+            <img src="<%= item.url %>" height="250">
+            <button style="background: none;border: none;" onclick="eliminarImg('<%= item.id %>')">
+                <img src="/images/borrar.png" height="40" width="40">
+            </button>
+            <img src="/images/lapiz.png" height="40" width="40">
+        </div>
+        <% }); %>
+</div>

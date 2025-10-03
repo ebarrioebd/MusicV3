@@ -1,0 +1,64 @@
+<div class="content showPage">
+    <main class="wrap">
+        <section class="card" aria-labelledby="titulo">
+            <header>
+                <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="3" y="8" width="3" height="12" rx="1.5" fill="currentColor" />
+                        <rect x="9.5" y="4" width="3" height="16" rx="1.5" fill="currentColor" />
+                        <rect x="16" y="10" width="3" height="10" rx="1.5" fill="currentColor" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 id="titulo">Agrega tu Musica</h1>
+                </div>
+            </header>
+
+            <div id="form-login">
+                <div class="field">
+                    <label for="nombre">Nombre y Autor</label>
+                    <input class="input-addmusic"  id="nombre" name="nombre" type="text" autocomplete="disabled"
+                        placeholder="Nombre y Autor de la musica" autocomplete="nombre" required>
+                </div>
+
+                <div class="field">
+                    <label for="url">Url de Dropbox</label>
+                    <input class="input-addmusic"  id="url" name="url" type="text" placeholder="url" autocomplete="current-password" required>
+                </div>
+                <br>
+                <div class="actions">
+                    <button class="btn" onclick="addMusic()">Agregar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main class="wrap">
+        <section class="card" aria-labelledby="titulo">
+            <header>
+                <div class="" aria-hidden="true">
+                    <img src="/images/icon_img.png" width="38">
+                </div>
+                <div>
+                    <h1 id="titulo">Agrega tu Imagen</h1>
+                </div>
+            </header>
+
+            <div id="form-login">
+                <div class="field">
+                    <label for="nombre">Nombre(opcional)</label>
+                    <input class="input-addmusic" id="nombreImg" type="text" autocomplete="disabled" placeholder="Nombre y Autor de la musica"
+                        autocomplete="nombre" required>
+                </div>
+
+                <div class="field">
+                    <label for="url">Url de Dropbox</label>
+                    <input class="input-addmusic"  id="urlImg" type="text" placeholder="url" autocomplete="current-password" required>
+                </div>
+                <br>
+                <div class="actions">
+                    <button class="btn" onclick="addImg()">Agregar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

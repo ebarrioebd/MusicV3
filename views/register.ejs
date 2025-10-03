@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro | MiMúsica</title> 
+  <link rel="stylesheet" href="stylesheets/register.css"> 
+</head>
+
+<body>
+  <div class="bg-decor" aria-hidden="true"></div>
+  <main class="wrap">
+    <section class="card" aria-labelledby="titulo">
+      <header>
+        <div class="logo" aria-hidden="true">
+          <!-- Minimal equalizer icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="8" width="3" height="12" rx="1.5" fill="currentColor" />
+            <rect x="9.5" y="4" width="3" height="16" rx="1.5" fill="currentColor" />
+            <rect x="16" y="10" width="3" height="10" rx="1.5" fill="currentColor" />
+          </svg>
+        </div>
+        <div>
+          <h1 id="titulo">Crear cuenta</h1>
+          <p class="sub">Tu espacio personal para tu música</p>
+        </div>
+      </header>
+
+      <form id="form-registro" action="/usuarios/register" method="post" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" name="email" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email"
+            inputmode="email" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password"
+            minlength="3" required>
+          <button class="toggle-pass" type="button" aria-label="Mostrar u ocultar contraseña" title="Mostrar/ocultar"
+            id="btn-toggle">
+            👁️
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="edad">Edad</label>
+            <input id="edad" name="edad" type="number" placeholder="18" inputmode="numeric" min="13" max="120" required>
+          </div>
+          <div class="field">
+            <label for="alias">Alias (opcional)</label>
+            <input id="alias" name="alias" type="text" placeholder="Tu alias" autocomplete="nickname">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="submit">Registrarme</button>
+          <p class="meta">Al continuar, aceptas nuestros <a href="#">Términos</a> y <a href="#">Privacidad</a>.</p>
+          <p class="meta">Ya tienes una cuenta? <a href="/login">Login</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Mostrar/ocultar contraseña
+    const pass = document.querySelector('#password');
+    const toggle = document.querySelector('#btn-toggle');
+    toggle.addEventListener('click', () => {
+      const isPwd = pass.type === 'password';
+      pass.type = isPwd ? 'text' : 'password';
+      toggle.textContent = isPwd ? '🙈' : '👁️';
+    });
+
+    // Validación simple del formulario
+    document.getElementById('form-registro').addEventListener('submit', (e) => {
+      const form = e.currentTarget;
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        // Marca campos inválidos
+        [...form.elements].forEach(el => {
+          if (el instanceof HTMLInputElement) {
+            el.style.borderColor = el.checkValidity() ? 'var(--card-border)' : 'tomato';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

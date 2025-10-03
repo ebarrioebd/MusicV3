@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión | MiMúsica</title> 
+  <link rel="stylesheet" href="stylesheets/login.css"> 
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true"></div>
+  <div class="content">
+  <main class="wrap">
+    <section class="card" aria-labelledby="titulo">
+      <header>
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="8" width="3" height="12" rx="1.5" fill="currentColor"/>
+            <rect x="9.5" y="4" width="3" height="16" rx="1.5" fill="currentColor"/>
+            <rect x="16" y="10" width="3" height="10" rx="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <h1 id="titulo">Iniciar sesión</h1>
+          <p class="sub">Bienvenido de nuevo</p>
+        </div>
+      </header>
+
+      <form id="form-login" action="/usuarios/login" method="post" novalidate>
+        <div class="field">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" value="" name="email" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <input id="password" value="" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+          <button class="toggle-pass" type="button" aria-label="Mostrar u ocultar contraseña" title="Mostrar/ocultar" id="btn-toggle">
+            👁️
+          </button>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="submit">Entrar</button>
+          <p class="meta">¿No tienes cuenta? <a href="/register">Regístrate</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+  <script>
+    const pass = document.querySelector('#password');
+    const toggle = document.querySelector('#btn-toggle');
+    toggle.addEventListener('click', () => {
+      const isPwd = pass.type === 'password';
+      pass.type = isPwd ? 'text' : 'password';
+      toggle.textContent = isPwd ? '🙈' : '👁️';
+    });
+    document.getElementById('form-login').addEventListener('submit',(e)=>{
+      const form=e.currentTarget;
+      if(!form.checkValidity()){
+        e.preventDefault();
+        [...form.elements].forEach(el=>{
+          if(el instanceof HTMLInputElement){el.style.borderColor=el.checkValidity()?'var(--card-border)':'tomato';}
+        });
+      }
+    });
+  </script>
+</body>
+</html>
