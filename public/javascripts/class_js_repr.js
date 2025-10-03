@@ -92,6 +92,7 @@ class AudioPlayer {
         this.tracks.forEach((t, idx) => t.classList.toggle('active', idx === i));
         const src = this.tracks[i].dataset.src;
         this.titleEl.textContent = this.tracks[i].textContent || 'Track';
+        document.title  = this.titleEl.textContent;
         // set src and load
         this.audio.src = src;
         this.audio.load();
